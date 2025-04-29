@@ -38,7 +38,7 @@ int main(){
         printf("\n");
 
     printf ("*** Movimento Cavalo ***\n");
-    for (i = 0; i <cavalo_baixo; i++)
+    for (i = 0; i <cavalo_baixo; i++)     // movimento do cavalo usando o loop aninhado for.
     {
         printf ("Baixo\n");
         
@@ -48,7 +48,7 @@ int main(){
     } 
 
     
-    while (k < cavalo_esquerda){
+    while (k < cavalo_esquerda){    // movimento do cavalo usando o loop aninhado while. 
         printf ("Esquerda\n");
         k++;
     }
