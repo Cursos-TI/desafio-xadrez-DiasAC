@@ -1,63 +1,59 @@
 #include <stdio.h>
 
-int main(){
-
-    int movimentobispo = 5;
-    int movimentorainha = 8;
-    int movimentotorre = 5;
-    int cavalo_esquerda = 1;
-    int cavalo_baixo = 2;
-    int i, j, k, l;
-
-    printf("--- Jogo Xadrez ---\n");
-    
-    printf (" *** Movimento Bispo: ***\n");
-    for (i = 0; i <movimentobispo; i++)     // movimento do bispo usando o loop for.
-    {
-        printf("Cima Direita\n");
+void mover_torre(int casas) {     // função recursiva para torre, bispo e rainha
+    if (casas > 0) {
+        printf("Direita\n");
+        mover_torre(casas - 1);
     }
-        printf ("\n");
+}
 
-    printf("*** Movimento Rainha: ***\n");     // movimento da rainha usando o loop while.
-    i = 0;
-    while (i < movimentorainha)
-    {
-        printf("Esquerda\n");
-        i++;
+void mover_bispo(int casas) {
+    if (casas > 0) {
+        printf("Cima\n");
+        printf("Direita\n");
+        mover_bispo(casas - 1);
     }
-    
-        printf("\n");
+}
 
-    printf ("*** Movimento Torre: ***\n");   // movimento da torre usando loop do-while.
-    i = 0;
-    do{
-        printf("Direita \n");
-        i++;
-    } while (i < movimentotorre);
-
-        printf("\n");
-
-    printf ("*** Movimento Cavalo ***\n");
-    for (i = 0; i <cavalo_baixo; i++)     // movimento do cavalo usando o loop aninhado for.
-    {
-        printf ("Baixo\n");
-        
-        for (j = 0; j < cavalo_baixo; j++){
-            
-        }
-    } 
-
-    
-    while (k < cavalo_esquerda){    // movimento do cavalo usando o loop aninhado while. 
+void mover_rainha(int casas) {
+    if (casas > 0){
         printf ("Esquerda\n");
-        k++;
-    }
-   
-    while (l < cavalo_esquerda){
-        l++;
+        mover_rainha (casas -1);
     }
 
+}
 
-    
+void mover_cavalo(int casas) {
+    for (int a = 0; a <= 2; a++) {
+        for (int b = 0; b <= 2; b++) {
+            if (a == 2 && b == 1) {
+                
+                printf("Cima\n");
+                printf("Cima\n");
+                printf("Direita\n");
+                break;  
+            }
+        }
+    }
+}
+
+int main() {
+
+    printf("Movimento da Torre:\n");   // movimento das peças chamando a função void.
+    mover_torre(5);
+    printf("\n");
+
+    printf("Movimento do Bispo:\n");
+    mover_bispo(5);
+    printf("\n");
+
+    printf("Movimento da Rainha:\n");
+    mover_rainha(8);
+    printf("\n");
+
+    printf("Movimento do Cavalo:\n");
+    mover_cavalo (3);
+    printf("\n");
+
     return 0;
 }
